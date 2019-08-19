@@ -1,11 +1,15 @@
+// sets up the HTML canvas
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
-
-context.scale(20, 20); 
-
 context.fillStyle = '#000';
 context.fillRect(0, 0, canvas.clientWidth, canvas.height);
 
+
+// zooms in to scale
+context.scale(20, 20); 
+
+
+// draws T shape
 const matrix = [
     [0, 0, 0],
     [1, 1, 1],
@@ -31,9 +35,10 @@ function createMatrix(w, h) {
     }
     return matrix;
 }
+
 function draw(){
     context.fillStyle = '#000';
-context.fillRect(0, 0, canvas.clientWidth, canvas.height);
+    context.fillRect(0, 0, canvas.clientWidth, canvas.height);
     drawMatrix (arena, {x: 0, y:0})
     drawMatrix(player.matrix, player.pos);
 }
@@ -129,7 +134,7 @@ function update(time = 0){
 const arena = createMatrix(12, 20);
 
 const player = {
-    pos: {x:5, y:5},
+    pos: {x:5, y:0},
     matrix: matrix,
 }
 
